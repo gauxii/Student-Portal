@@ -1,5 +1,6 @@
 package com.example.studentportal;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -24,7 +25,7 @@ import org.json.JSONObject;
 
 public class AddPage extends AppCompatActivity {
     EditText ed1,ed2,ed3,ed4,ed5,ed6,ed7,ed8;
-    AppCompatButton b1;
+    AppCompatButton b1,b2;
     String apiurl="https://courseapplogix.onrender.com/addstudents";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,7 @@ public class AddPage extends AppCompatActivity {
         ed7=(EditText) findViewById(R.id.email);
         ed8=(EditText) findViewById(R.id.address);
         b1=(AppCompatButton) findViewById(R.id.adde);
+        b2=(AppCompatButton) findViewById(R.id.backlog);
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,6 +90,13 @@ public class AddPage extends AppCompatActivity {
                 //Request Queue
                 RequestQueue requestQueue=Volley.newRequestQueue(getApplicationContext());
                 requestQueue.add(jsonObjectRequest);
+            }
+        });
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent e5=new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(e5);
             }
         });
     }
